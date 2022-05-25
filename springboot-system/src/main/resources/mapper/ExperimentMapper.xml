@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wujiale.springbootsystem.mapper.ExperimentMapper">
+<!--    根据用户名获取用户信  public User getExperimentInfo(String username);-->
+    <select id="getExperimentInfo" resultType="com.wujiale.springbootsystem.entity.User">
+        select * from t_dockerusers where username = #{username}
+    </select>
+<!--    public int storageContainer(Container container);-->
+    <insert id="storageContainer">
+        INSERT INTO t_containers (image_name, container_id,username,container_type) VALUES (#{container.image_name},#{container.container_id},#{container.username},#{container.container_type})
+    </insert>
+<!--    public String deleteContainer(String container_id);-->
+    <delete id="deleteContainer">
+        DELETE FROM t_containers WHERE container_id=#{container_id};
+    </delete>
+
+    <select id="getContainerByContainerId" resultType="com.wujiale.springbootsystem.entity.Container">
+        select * from t_containers where container_id = #{container_id}
+    </select>
+</mapper>

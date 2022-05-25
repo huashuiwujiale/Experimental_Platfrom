@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wujiale.springbootsystem.mapper.ImageMapper">
+    <select id="getImageList" resultType="com.wujiale.springbootsystem.entity.Image">
+        select * from t_images
+    </select>
+    <insert id="addImage">
+        INSERT INTO t_images VALUES (#{image.value},#{image.lable},#{image.describe})
+    </insert>
+    <!--    public String deleteContainer(String container_id);-->
+    <delete id="deleteImage">
+        DELETE FROM t_images WHERE value=#{value};
+    </delete>
+</mapper>

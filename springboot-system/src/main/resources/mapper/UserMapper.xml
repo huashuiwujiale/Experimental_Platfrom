@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wujiale.springbootsystem.mapper.UserMapper">
+
+    <!--getUserByUsername(String username);-->
+    <select id="login_auth" resultType="com.wujiale.springbootsystem.entity.User">
+        <!--    select * from t_user where username = #{username}-->
+        select * from t_dockerusers where username = #{username}
+    </select>
+<!--    void register_auth-->
+    <insert id="register_auth">
+        INSERT INTO t_dockerusers (username,password) VALUES ('${username}','${password}')
+    </insert>
+    <select id="getContainerList" resultType="com.wujiale.springbootsystem.entity.Container">
+        select * from t_containers where username = #{username}
+    </select>
+</mapper>
